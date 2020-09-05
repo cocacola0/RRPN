@@ -11,6 +11,7 @@ from pynuscenes.nuscenes_dataset import NuscenesDataset
 from nuscenes.utils.geometry_utils import view_points
 
 def parse_args():
+    print('Starting the parser!')
     # Parse the input arguments
     parser = argparse.ArgumentParser(description='Converts the NuScenes dataset to COCO format')
 
