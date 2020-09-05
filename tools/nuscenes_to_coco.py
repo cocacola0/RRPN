@@ -13,14 +13,16 @@ from nuscenes.utils.geometry_utils import view_points
 def parse_args():
     # Parse the input arguments
     parser = argparse.ArgumentParser(description='Converts the NuScenes dataset to COCO format')
-    
-    parser.add_argument('--nusc_root', default='../data/nuscenes',
+
+    parser.add_argument('--nusc_root', default='/mnt/disk2/datasets/nuscenes',
                         help='NuScenes dataroot')
-    
-    parser.add_argument('--split', default='mini_train',
+    #train
+    parser.add_argument('--split', default='train',
                         help='Dataset split (mini_train, mini_val, train, val, test)')
 
-    parser.add_argument('--out_dir', default='../data/nucoco/',
+    #../../Loss_landscape_visualization_for_Centernet/data/nuscenes
+
+    parser.add_argument('--out_dir', default='../../Loss_landscape_visualization_for_Centernet/data/nuscenes',
                         help='Output directory for the nucoco dataset')
 
     parser.add_argument('--nsweeps_radar', default=1, type=int,
@@ -32,10 +34,10 @@ def parse_args():
     parser.add_argument('--cameras', nargs='+',
                         default=['CAM_FRONT',
                                  'CAM_BACK',
-                                #  'CAM_FRONT_LEFT',
-                                #  'CAM_FRONT_RIGHT',
-                                #  'CAM_BACK_LEFT',
-                                #  'CAM_BACK_RIGHT',
+                                 'CAM_FRONT_LEFT',
+                                 'CAM_FRONT_RIGHT',
+                                 'CAM_BACK_LEFT',
+                                 'CAM_BACK_RIGHT',
                                  ],
                         help='List of cameras to use.')
     
@@ -47,6 +49,7 @@ def parse_args():
 
 #-------------------------------------------------------------------------------
 def main():
+    print('The script is started!')
     args = parse_args()
 
     if "mini" in args.split:
@@ -54,6 +57,7 @@ def main():
     elif "test" in args.split:
         nusc_version = "v1.0-test"
     else:
+        print('v1.0-trainval')
         nusc_version = "v1.0-trainval"
 
     ## Categories: [category, supercategory, category_id]
@@ -68,6 +72,7 @@ def main():
     ## Short split is used for filenames
     anns_file = os.path.join(args.out_dir, 'annotations', 'instances_' + args.split + '.json')
 
+    print('Starting loading nuscenes dataset')
     nusc_dataset = NuscenesDataset(nusc_path=args.nusc_root, 
                                    nusc_version=nusc_version, 
                                    split=args.split,
@@ -76,10 +81,11 @@ def main():
                                    sensors_to_return=['camera', 'radar'],
                                    pc_mode='camera',
                                    logging_level=args.logging_level)
-    
+    print('Finished loading nuscenes dataset')
+    print('Creating the coco dataset')
     coco_dataset = COCO_PLUS(logging_level="INFO")
     coco_dataset.create_new_dataset(dataset_dir=args.out_dir, split=args.split)
-
+    print('Done creating the coco dataset')
     ## add all category in order to have consistency between dataset splits
     for (coco_cat, coco_supercat, coco_cat_id) in categories:
         coco_dataset.addCategory(coco_cat, coco_supercat, coco_cat_id)
