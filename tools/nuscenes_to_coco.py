@@ -53,14 +53,7 @@ def main():
     print('The script is started!')
     args = parse_args()
 
-    if "mini" in args.split:
-        nusc_version = "v1.0-mini"
-    elif "test" in args.split:
-        print('v1.0-test')
-        nusc_version = "v1.0-test"
-    else:
-        print('v1.0-trainval')
-        nusc_version = "v1.0-trainval"
+    nusc_version = "v1.0-test"
 
     ## Categories: [category, supercategory, category_id]
     categories = [['person',      'person' ,  1],
