@@ -17,8 +17,8 @@ def parse_args():
 
     parser.add_argument('--nusc_root', default='/mnt/disk2/datasets/nuscenes',
                         help='NuScenes dataroot')
-    #train
-    parser.add_argument('--split', default='train',
+    #test
+    parser.add_argument('--split', default='test',
                         help='Dataset split (mini_train, mini_val, train, val, test)')
 
     #../../Loss_landscape_visualization_for_Centernet/data/nuscenes
@@ -56,6 +56,7 @@ def main():
     if "mini" in args.split:
         nusc_version = "v1.0-mini"
     elif "test" in args.split:
+        print('v1.0-test')
         nusc_version = "v1.0-test"
     else:
         print('v1.0-trainval')
