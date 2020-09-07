@@ -53,7 +53,7 @@ def main():
     print('The script is started, and everything is good!')
     args = parse_args()
 
-    nusc_version = "v1.0-test"
+    nusc_version = "v1.0-trainval"
 
     ## Categories: [category, supercategory, category_id]
     categories = [['person',      'person' ,  1],
