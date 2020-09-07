@@ -57,7 +57,7 @@ def main():
 
     ## Categories: [category, supercategory, category_id]
     categories = [['person',      'person' ,  1],
-                  ['bicylce',     'vehicle',  2],
+                  ['bicycle',     'vehicle',  2],
                   ['car',         'vehicle',  3],
                   ['motorcycle',  'vehicle',  4],
                   ['bus',         'vehicle',  5],
