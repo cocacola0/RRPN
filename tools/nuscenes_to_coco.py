@@ -82,9 +82,13 @@ def main():
     coco_dataset.create_new_dataset(dataset_dir=args.out_dir, split=args.split)
     print('Done creating the coco dataset')
     ## add all category in order to have consistency between dataset splits
+
+    print('I do something with categories!')
     for (coco_cat, coco_supercat, coco_cat_id) in categories:
         coco_dataset.addCategory(coco_cat, coco_supercat, coco_cat_id)
-    
+
+    print('Starting looping through num_samples')
+
     ## Get samples from the Nuscenes dataset
     num_samples = len(nusc_dataset)
     for i in trange(num_samples):
