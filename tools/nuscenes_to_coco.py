@@ -18,7 +18,7 @@ def parse_args():
     parser.add_argument('--nusc_root', default='/mnt/disk2/datasets/nuscenes',
                         help='NuScenes dataroot')
     #test
-    parser.add_argument('--split', default='test',
+    parser.add_argument('--split', default='val',
                         help='Dataset split (mini_train, mini_val, train, val, test)')
 
     #../../Loss_landscape_visualization_for_Centernet/data/nuscenes
@@ -50,7 +50,7 @@ def parse_args():
 
 #-------------------------------------------------------------------------------
 def main():
-    print('The script is started!')
+    print('The script is started, and everything is good!')
     args = parse_args()
 
     nusc_version = "v1.0-test"
