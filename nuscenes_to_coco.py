@@ -11,15 +11,12 @@ from pynuscenes.nuscenes_dataset import NuscenesDataset
 from nuscenes.utils.geometry_utils import view_points
 
 def parse_args():
-    print('Starting the parser!')
     # Parse the input arguments
     parser = argparse.ArgumentParser(description='Converts the NuScenes dataset to COCO format')
 
-    print('Nuscenes root folder: /mnt/disk1/datasets/nuscenes')
     parser.add_argument('--nusc_root', default='/mnt/disk1/datasets/nuscenes',
                         help='NuScenes dataroot')
 
-    print('Nuscenes split: val')
     parser.add_argument('--split', default='val',
                         help='Dataset split (mini_train, mini_val, train, val, test)')
 
@@ -52,7 +49,6 @@ def parse_args():
 
 #-------------------------------------------------------------------------------
 def main():
-    print('The script is started, and everything is good!')
     args = parse_args()
 
     nusc_version = "v1.0-trainval"
