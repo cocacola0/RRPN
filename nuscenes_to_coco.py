@@ -20,8 +20,6 @@ def parse_args():
     parser.add_argument('--split', default='val',
                         help='Dataset split (mini_train, mini_val, train, val, test)')
 
-    #../../Loss_landscape_visualization_for_Centernet/data/nuscenes
-
     parser.add_argument('--out_dir', default='../../Loss_landscape_visualization_for_Centernet/data/nuscenes',
                         help='Output directory for the nucoco dataset')
 
@@ -49,6 +47,12 @@ def parse_args():
 
 #-------------------------------------------------------------------------------
 def main():
+    print('cocacola0')
+    print('cocacola0')
+    print('cocacola0')
+    print('cocacola0')
+    print('cocacola0')
+
     args = parse_args()
 
     nusc_version = "v1.0-trainval"
