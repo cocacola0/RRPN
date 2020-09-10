@@ -15,9 +15,11 @@ def parse_args():
     # Parse the input arguments
     parser = argparse.ArgumentParser(description='Converts the NuScenes dataset to COCO format')
 
+    print('Nuscenes root folder: /mnt/disk1/datasets/nuscenes')
     parser.add_argument('--nusc_root', default='/mnt/disk1/datasets/nuscenes',
                         help='NuScenes dataroot')
-    #test
+
+    print('Nuscenes split: val')
     parser.add_argument('--split', default='val',
                         help='Dataset split (mini_train, mini_val, train, val, test)')
 
