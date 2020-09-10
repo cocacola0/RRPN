@@ -17,7 +17,7 @@ def parse_args():
     parser.add_argument('--nusc_root', default='/mnt/disk1/datasets/nuscenes',
                         help='NuScenes dataroot')
     #test
-    parser.add_argument('--split', default='val',
+    parser.add_argument('--split', default='train',
                         help='Dataset split (mini_train, mini_val, train, val, test)')
 
     #../../Loss_landscape_visualization_for_Centernet/data/nuscenes
